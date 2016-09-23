@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+   <title>jQuery UI Sortable - Example</title>
+   <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+   <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+   <style>
+      #sortable-8{ list-style-type: none; margin: 0; 
+         padding: 0; width: 40%; float:left;}
+      #sortable-8 li{ margin: 0 3px 3px 3px; padding: 0.4em; 
+         display : inline;
+         }
+      .default {
+         background: #cedc98;
+         border: 1px solid #DDDDDD;
+         color: #333333;
+      }
+   </style>
+   <script>
+      $(function() {
+         $('#sortable-8').sortable({
+            update: function(event, ui) { 		
+               var productOrder = $(this).sortable('toArray').toString();
+               $("#sortable-9").text(productOrder);
+               console.log(productOrder);
+            }
+         });
+      });
+   </script>
+</head>
+<body>
+   <ul id="sortable-8">
+      <li id="34" class="default">Product 1</li>
+      <li id="54" class="default">Product 2</li>
+      <li id="66" class="default">Product 3</li>
+      <li id="77" class="default">Product 4</li>
+   </ul>
+   <br>
+   <h3><span id="sortable-9"></span></h3>
+</body>
+</html>

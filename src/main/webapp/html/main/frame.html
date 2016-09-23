@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Bit_Place</title>
+<link rel="stylesheet" href="../css/bootstrap/bootstrap-theme.css">
+<link rel="stylesheet" href="../css/bootstrap/bootstrap-theme.css.map">
+<link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
+<link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="../css/bootstrap/bootstrap-theme.min.css">
+
+<link rel="stylesheet" href="../css/main.css">
+<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+<script src="../js/content/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src='../js/content/underScore.js'></script>
+<script type="text/javascript" src='../js/content/gh3.js'></script>
+
+<link rel="stylesheet" href="../js/mobile/nprogress.css">
+<script data-pace-options='{ "ajax": true, "document" : true, "eventLag" : true }' src="../js/mobile/nprogress.js"></script>
+
+
+<script>
+$(document).ready(function(){
+	    $("#head").load("/Bit_Place/html/main/head.html"); 
+	    $("#sub").load("/Bit_Place/html/main/sub.html"); 
+	    $('#body').load("/Bit_Place/html/main/body.html");	   
+});
+</script>
+</head>
+<body>
+
+<!-- loading Images and Text -->
+
+<div id='loading_icon'>
+<table align="center">
+<tr>
+<td>
+<span id='loading_image'>
+</span>
+</td>
+<td width='300px'>
+<span id='loading_text'></span>
+</td>
+</tr>
+</table>
+</div>
+
+<!-- loading Images and Text End -->
+
+<div id='black_screen'></div>
+
+
+<div id ="bg">
+<div id="wrapper">
+<div id="head"></div>
+<div id ="sub"></div>
+<div id="body"></div>
+
+
+</div>
+</div>
+</body>
+</html>

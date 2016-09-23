@@ -1,0 +1,242 @@
+#logged_search_wrapper{
+	top:35px;
+	left : 10px;
+	width : 700px;
+	height : 200px;
+	display : block;
+	padding-left : 197px;
+	padding-top:120px;
+	position:absolute;
+	z-index:5;
+	
+}
+
+#character{
+position: absolute;
+top: 94px;
+left: 224px;
+width: 100px;
+height: 64px;
+z-index: 3;
+}
+
+#logged_white_shadow{
+	height: 21px;
+	position: block;
+	background-image: url('../img/content/content_bottom_shadow.png');
+	margin-top: 118px;
+}
+
+#logged_search_btn:hover{
+	opacity : 0.5;
+}
+
+#logged_searchResults{
+	display:block;
+	background : white;	
+}
+
+#logged_white{
+	height : 30px;
+	display : block;
+	
+}
+
+
+#searchType{
+	margin-left : 10px;
+}
+
+#logged_search_wrapper_back{
+	position: absolute;
+	top: 34px;
+	left: 287px;
+	width: 252px;
+	height: 225px;
+	font-size: 0;
+	background-image: url('../img/content/content_logo_id.png');
+	z-index: 1;
+}
+
+#logged_search_bar{
+	background-image: url('../img/content/search_input.png');
+	width: 313px;
+	height: 50px;
+	display: block;
+	float: left;
+	padding-top: 9px;
+	padding-left: 13px;
+	background-size: 259px 46px;
+	background-repeat: no-repeat;
+	
+}
+
+#logged_search_btn{
+	background: rgb(47, 110, 221);
+	width: 74px;
+	height: 43px;
+	display: block;
+	float: left;
+	margin-left: -32px;
+	margin-top: 2px;
+	padding-top: 12px;
+	padding-left: 22px;
+	color: white;
+	font-weight: bold;
+}
+
+#logged_searchData{
+	background : transparent;
+	border : none;
+	margin-top:3px;
+}
+
+
+.logged_block{
+	background : green;
+	margin-right: 10px;
+	width : 131px;
+	float: left;
+	display : block;
+	position:relative;
+	
+}
+
+.logged_btn_size{
+	width: 100px;
+	height:100px;
+	
+}
+
+.logged_display_image{
+	opacity : 0.4;
+}
+
+.logged_githubRepoBox{
+display: block;
+position: relative;
+height: 151px;
+width: 791px;
+padding-top: 18px;
+padding-left: 14px;
+margin-bottom: 0px;
+margin-left: -40px;
+margin-top: -20px;
+}
+
+.logged_repoName > span{
+	color: rgb(149, 149, 255);
+	font-weight : bold;
+}
+
+.logged_githubRepoBox:hover{
+background : rgb(78, 78, 245);
+color : white;
+}
+
+
+
+.logged_repoAvatar{
+margin-left: 18px;
+margin-top: 10px;
+display: block;
+float: left;
+width: 51px;
+height: 51px;
+}
+
+.logged_repoTitle{
+margin: 10px 18px;
+display: block;
+float: left;
+width: 670px;
+height: 20px;
+}
+
+.logged_repoName{
+margin: -2px 18px;
+display: block;
+float: left;
+width: 670px;
+height: 21px;
+	
+}
+
+.logged_repoDesc{
+margin: 10px 18px;
+display: block;
+float: left;
+width: 670px;
+height: 50px;
+	
+}
+
+
+#logged_recent_Action{
+position: absolute;
+height: 54px;
+width: 315px;
+top: 235px;
+left: 0px;
+background-image: url('../img/content/content_logo_dd.png');
+background-size: 83px 54px;
+background-repeat: no-repeat;
+opacity: 1.7;
+padding-left: 90px;
+padding-top: 11px;
+color: rgb(86, 86, 228);
+font-size: 19px;
+font-weight: bold;
+z-index:100;
+}
+
+#logged_background{
+position: absolute;
+width: 181%;
+height: 55px;
+top: 234px;
+left: -479px;
+z-index: 99;
+background: rgb(130, 155, 255);
+	
+}
+
+
+#addmoreResults{
+background-image: url('../img/content/cloud.png');
+background-size: 120px 120px;
+background-repeat: no-repeat;
+width: 122px;
+height: 116px;
+margin-left: 313px;
+margin-top: 4px;
+color: transparent;
+}
+
+/*position and hide the menu initially - leave room for menu items to expand...*/
+#page {padding-top:150px; padding-bottom:20px; width:100%;}
+#menu {
+position: absolute;
+width: 100%;
+top: 251px;
+left: -282px;
+z-index: 100;
+}
+/*dock styling...*/
+/*...centre the dock...*/
+#menu div.jqDockWrap {margin:0 auto;}
+/*...set the cursor...*/
+#menu div.jqDock {cursor:pointer;}
+/*label styling...*/
+#menu img {padding:0 10px;}
+
+
+div.jqDockLabel{
+	padding:0 6px; 
+	white-space:nowrap; 
+	font-size : 40px;
+	color:white; 
+	background-color:#2FA2FC; 
+	cursor:pointer; 
+	padding:0 10px;}
+

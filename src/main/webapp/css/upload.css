@@ -1,0 +1,195 @@
+#form_wrapper{
+	margin-left:65px;
+	padding-top:20px;
+	padding-bottom:15px;
+	text-align: center;
+}
+
+#content_title_text{
+ font-weight: bold;
+ font-size : large;
+ margin-left  : 30px;	
+ padding-top : 20px;
+}
+
+#texty{
+ margin-left : 20px;	 
+}
+p{font-family: Arial, Helvetica, sans-serif}
+
+#grey-line{
+	width : 2px;
+	height : 100%;
+	background : #E4E4E4;
+	position : absolute;
+	left : 170px;
+}
+
+.texty2{
+	color : #90a1b1;	
+}
+
+.fileuploadFormWrapper{
+	display:block;
+	position : relative;
+	margin-top : 10px;
+	margin-left : 10px;
+	margin-bottom: 10px;
+	margin-right:10px;
+	padding : 10px;
+	width : 600px;
+}
+
+.fileupload_icons{
+    position : relative;
+    display : block;
+    float : left;
+    margin-left : 40px;
+}
+
+.fileupload_area{ 
+    position : relative;
+    display : block;
+    float : left;
+    margin-left : 13px;
+    margin-right : 200px;
+    margin-bottom:20px;	
+}
+
+.attach_file_atag{
+	padding : 7px;
+}
+
+.invisible_buttons{
+	display : none;
+}
+
+.fileiconz{
+	margin-right : 10px;
+}
+
+.fileline{
+	float : left;
+	margin-left : 15px;
+	margin-bottom : 10px;
+}
+
+.buttons_group{
+	display : block;
+	width : 700px;
+	text-align : center;
+	float : left;
+	margin-left:60px;
+}
+
+#folder_output{
+	margin-top : 24px;
+	margin-left : 130px;
+}
+
+#git_selector_btn{
+	position : absolute;
+	left : 490px;
+	top : 292px;
+}
+
+#githubButtonGroup{
+	position : absolute;
+	top : 292px;
+	left : 616px;
+	
+}
+
+#searchforRepo{
+	background-image : url('../img/content/git_btn.png');
+	width : 117px;
+	height : 34px;	
+	display : block;
+	margin-left: -4px;
+	opacity : 0.8;
+}
+
+#searchforRepo:hover{
+	opacity : 1;
+}
+
+#returntoSearch{
+	background-image : url('../img/content/git_btn.png');
+	width : 117px;
+	height : 34px;	
+	display : block;
+	margin-left: -4px;
+	opacity : 0.8;	
+}
+
+#returntoSearch:hover{
+	opacity : 1;
+}
+
+#searchRepo_wrapper_top_td{
+	background-image : url('../img/content/toplogobar.png');
+	background-repeat : no-repeat;
+	height : 40px;
+	width : 540px;
+}
+
+
+.searchRepo_wrapper{
+	margin-top:20px;
+}
+
+#next_Rep{
+	width :56px;
+	height : 34px;
+	position : relative;
+	float : right;
+	display : block;
+	background : white;
+	opacity:0;
+}
+
+#next_Rep:hover{
+	opacity : 0.5;
+}
+
+#prev_Rep{
+	background : white;
+	opacity:0;
+	width :56px;
+	height : 34px;
+	position : relative;
+	float : left;
+	display : block;
+}
+
+#prev_Rep:hover{
+	opacity : 0.5;
+}
+
+#searchedRepo{
+	margin-bottom:10px;
+	width : 235px;
+	text-align : left;	
+}
+
+.submitRepo{
+	color : rgb(76, 76, 92);
+	font-size : 14px;
+	font-weight: bold;	
+}
+
+.repoDescribeDetails{
+	padding-bottom: 12px;
+	padding-left: 20px;	
+}
+
+#searchedRepoDetail{
+	width : 300px;
+	background : #efefef;
+}
+
+
+.Upload_repoDescribe_Text{
+
+}
+

@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bean-mapper">
+    <!-- Members -->
+    <resultMap type="bean" id="beanMap">
+    <id column="memno" property="memno"/>
+    <id column="titleno" property="titleno"/>
+    
+    <result column="memno" property="memno"/>
+    <result column="git_id" property="gitid"/>
+    <result column="email" property="email"/>
+    <result column="photo" property="photo"/>
+    <result column="phone" property="phone"/>
+  
+    <result column="email_serial" property="email_serial"/>
+    <result column="name" property="name"/>
+     
+    <!-- Groups -->
+    <result column="groupname" property="groupname"/>
+    <result column="groupno" property="groupno"/>
+    <result column="creator" property="creator"/>
+    <result column="activegroup" property="activegroup"/>
+    <result column="introduce" property="introduce"/>
+    <result column="code" property="code"/>
+    
+    <!-- Group Member -->
+    <result column="level" property="level"/>
+    
+    <!-- Titles -->
+    <result column="title" property="title"/>
+    <result column="titleno" property="titleno"/>
+    <result column="orders" property="orders"/>
+    <result column="activate" property="activate"/>
+    
+    <!-- Contents -->
+   <result column="git_repository" property="git_repository"/>
+   <result column="git_id" property=  "git_id"/>
+   <result column="git_pwd" property=  "git_pwd"/>
+    
+    <result column="content_title" property=  "content_title"/>
+    <result column ="edited_date" property="edited_date"/>
+    <result column="created_date" property="created_date"/>
+    <result column="contentno" property="contentno"/>
+    <result column="content_leader" property="content_leader"/>
+    <result column="opento" property="opento"/>
+    <result column="openorclose" property="openorclose"/>
+    <result column="locker" property="locker"/> 
+    <result column="validation" property="validation"/>
+    <result column="count" property="count"/> 
+    <result column="content" property="content"/>     
+    
+   <!-- my -->
+     <!-- Group_Members -->  
+    <result column="alarm" property="alarm"/> 
+    <result column="accept" property="accept"/> 
+    <result column="reg_date" property="reg_date"/> 
+   <!-- my end --> 
+    
+  </resultMap>
+  
+  <select id="logged" resultMap="beanMap">
+         SELECT GIT_ID, PHOTO, NAME, EMAIL FROM BIT_MEMBERS LIMIT 10;
+  </select>
+   
+  <select id="checkIdValdation" resultMap="beanMap" parameterType="java.lang.String">
+	SELECT EMAIL, MEMNO FROM BIT_MEMBERS where EMAIL=#{searchValue};
+  </select>
+  
+  <select id="loginBtn" resultMap="beanMap" parameterType="bean" >
+      	SELECT MEMNO FROM BIT_MEMBERS where EMAIL =#{email} and pwd =#{pwd};
+  </select>
+    
+  <select id="getFindName" resultMap="beanMap" parameterType="java.lang.String">
+      	SELECT EMAIL FROM BIT_MEMBERS WHERE NAME LIKE #{name} LIMIT 5; 
+  </select>
+  
+  
+<!-- firstlogin and get the RECENT Group -->
+  <select id="firstLogin" parameterType="java.lang.Integer" resultMap="beanMap">  	
+  	SELECT G.GROUPNAME, G.GROUPNO, G.CREATED_DATE 
+	FROM BIT_GROUP G 
+	JOIN BIT_GROUP_MEMBERS GM ON G.GROUPNO= GM.GROUPNO
+	WHERE GM.MEMNO = #{no} ORDER BY G.GROUPNO DESC LIMIT 1;
+  </select>   
+<!-- end -->
+  
+  
+  <insert id="getRegisterSubmit" parameterType="bean">
+	INSERT INTO BIT_MEMBERS(EMAIL, PWD, GIT_ID, GIT_PWD, PHOTO, NAME, PHONE)
+	VALUES(#{email},#{pwd},#{git_id},#{git_pwd},#{photo},#{name},#{phone});
+  </insert> 
+  
+  <select id="getFindBtn" parameterType="bean" resultMap="beanMap">
+      	SELECT NAME, PHONE FROM BIT_MEMBERS WHERE PHONE=#{phone} 
+      	AND EMAIL=#{email};
+  </select>
+  
+  <select id="group" parameterType="java.lang.Integer" resultMap="beanMap">	
+      	SELECT G.GROUPNAME, G.GROUPNO, G.CREATED_DATE, GM.LEVEL 
+	FROM BIT_GROUP G 
+	JOIN BIT_GROUP_MEMBERS GM ON G.GROUPNO=GM.GROUPNO     
+	WHERE GM.MEMNO = #{no} ORDER BY G.GROUPNO DESC;
+  </select>  
+  
+  <select id="title" parameterType="java.lang.Integer" resultMap="beanMap">	
+      	SELECT GG.TITLE, GG.TITLENO, GG.ORDERS, GG.CREATOR FROM(
+      	SELECT T.TITLE, T.TITLENO, O.ORDERS, G.CREATOR 
+	FROM BIT_TITLE T 
+	JOIN BIT_TITLE_ORDER O 
+	ON T.TITLENO= O.TITLENO 
+	JOIN BIT_GROUP G 
+	ON G.GROUPNO=T.GROUPNO
+	WHERE T.GROUPNO=#{group}) GG WHERE GG.ORDERS>0 LIMIT 3;			
+  </select>
+  
+  <select id="getTitlefirstOrder" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+      	SELECT O.ORDERS FROM BIT_TITLE T
+	JOIN BIT_TITLE_ORDER O ON O.TITLENO=T.TITLENO
+	WHERE T.GROUPNO=#{groupno} ORDER BY O.ORDERS LIMIT 1;      
+  </select>
+  
+  
+  <select id="getTitlelastOrder" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+      	SELECT O.ORDERS FROM BIT_TITLE T
+	JOIN BIT_TITLE_ORDER O ON O.TITLENO=T.TITLENO
+	WHERE T.GROUPNO=#{groupno} ORDER BY O.ORDERS DESC LIMIT 1;      
+  </select>
+  
+  
+  <select id="getTitlesPaging" parameterType="bean" resultMap="beanMap">
+      	SELECT GG.TITLE, GG.TITLENO, GG.ORDERS, GG.CREATOR FROM(
+      	SELECT T.TITLE, T.TITLENO, O.ORDERS, G.CREATOR 
+	FROM BIT_TITLE T 
+	JOIN BIT_TITLE_ORDER O 
+	ON T.TITLENO= O.TITLENO 
+	JOIN BIT_GROUP G 
+	ON G.GROUPNO=T.GROUPNO
+	WHERE T.GROUPNO=#{groupno}) GG WHERE GG.ORDERS > #{startPage} 
+	LIMIT 3;
+  </select>
+  
+   <select id="getTitlesPagingRev" parameterType="bean" resultMap="beanMap">
+        <![CDATA[
+          SELECT * FROM(
+	SELECT GG.TITLE, GG.TITLENO, GG.ORDERS, GG.CREATOR FROM(
+      	SELECT T.TITLE, T.TITLENO, O.ORDERS, G.CREATOR 
+	FROM BIT_TITLE T 
+	JOIN BIT_TITLE_ORDER O 
+	ON T.TITLENO= O.TITLENO 
+	JOIN BIT_GROUP G 
+	ON G.GROUPNO=T.GROUPNO
+	WHERE T.GROUPNO=#{groupno}) GG WHERE GG.ORDERS < #{prevPage} ORDER BY GG.ORDERS DESC
+	LIMIT 3) GGG ORDER BY GGG.ORDERS;
+        ]]>
+  </select>
+  
+  <select id="getGroupAdminTitleTotal" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+      	SELECT COUNT(TITLENO) FROM BIT_TITLE WHERE GROUPNO= #{groupno};
+  </select>
+   
+    
+  <select id="sub" parameterType="java.lang.Integer" resultType="bean">
+          <![CDATA[
+      	SELECT  DISTINCT GG.CONTENTNO, GG.MEMNO, GG.CONTENT_TITLE, GG.CONTENT, GG.EDITED_DATE,  
+          GG.GIT_REPOSITORY, GG.GIT_ID, GG.GIT_PWD, BG.LEVEL, GG.GROUPNO FROM(
+          SELECT C.CONTENTNO, S.MEMNO, C.CONTENT_TITLE, S.CONTENT, C.EDITED_DATE,  
+          C.GIT_REPOSITORY, C.GIT_ID, C.GIT_PWD, T.GROUPNO
+          FROM BIT_TITLE T JOIN BIT_CONTENT C 
+          ON T.TITLENO = C.TITLENO 
+          JOIN CONTENT_SPECIFIC S ON C.CONTENTNO=S.CONTENTNO
+          ) GG
+	JOIN BIT_GROUP_MEMBERS BG ON BG.MEMNO=GG.MEMNO
+	WHERE BG.GROUPNO = #{groupno} AND GG.GROUPNO=#{groupno} AND GG.CONTENTNO<=#{startPage} 
+	ORDER BY GG.CONTENTNO DESC LIMIT 5;
+	]]>	
+  </select>
+  
+  <select id="getSubsMax" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+          SELECT MAX(CONTENTNO) FROM BIT_CONTENT C JOIN BIT_TITLE T ON T.TITLENO=C.TITLENO 
+          WHERE T.GROUPNO=#{groupno} ORDER BY C.CONTENTNO DESC;
+  </select>
+  
+  <select id="getSubsMin" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+          SELECT MIN(CONTENTNO) FROM BIT_CONTENT C JOIN BIT_TITLE T ON T.TITLENO=C.TITLENO 
+          WHERE T.GROUPNO=#{groupno} ORDER BY C.CONTENTNO DESC;
+  </select>
+  
+  <select id="getSubPaging" parameterType="bean" resultType="bean">
+          <![CDATA[
+	SELECT  DISTINCT GG.CONTENTNO, GG.MEMNO, GG.CONTENT_TITLE, GG.CONTENT, GG.EDITED_DATE,  
+          GG.GIT_REPOSITORY, GG.GIT_ID, GG.GIT_PWD, BG.LEVEL, GG.GROUPNO FROM(
+          SELECT C.CONTENTNO, S.MEMNO, C.CONTENT_TITLE, S.CONTENT, C.EDITED_DATE,  
+          C.GIT_REPOSITORY, C.GIT_ID, C.GIT_PWD, T.GROUPNO
+          FROM BIT_TITLE T JOIN BIT_CONTENT C 
+          ON T.TITLENO = C.TITLENO 
+          JOIN CONTENT_SPECIFIC S ON C.CONTENTNO=S.CONTENTNO
+          ) GG
+	JOIN BIT_GROUP_MEMBERS BG ON BG.MEMNO=GG.MEMNO
+	WHERE BG.GROUPNO = #{groupno} AND GG.GROUPNO= #{groupno} AND GG.CONTENTNO <= #{lastPage} ORDER BY GG.CONTENTNO DESC LIMIT 5;   
+	]]>	   
+  </select>
+  
+  <select id="getprevSubPaging" parameterType="bean" resultType="bean">
+      <![CDATA[
+      SELECT * FROM(
+	SELECT  DISTINCT GG.CONTENTNO, GG.MEMNO, GG.CONTENT_TITLE, GG.CONTENT, GG.EDITED_DATE,  
+          GG.GIT_REPOSITORY, GG.GIT_ID, GG.GIT_PWD, BG.LEVEL, GG.GROUPNO FROM(
+          SELECT C.CONTENTNO, S.MEMNO, C.CONTENT_TITLE, S.CONTENT, C.EDITED_DATE,  
+          C.GIT_REPOSITORY, C.GIT_ID, C.GIT_PWD, T.GROUPNO
+          FROM BIT_TITLE T JOIN BIT_CONTENT C 
+          ON T.TITLENO = C.TITLENO 
+          JOIN CONTENT_SPECIFIC S ON C.CONTENTNO=S.CONTENTNO
+          ) GG
+	JOIN BIT_GROUP_MEMBERS BG ON BG.MEMNO=GG.MEMNO
+	WHERE BG.GROUPNO = #{groupno} AND GG.GROUPNO= #{groupno} AND GG.CONTENTNO >= #{firstPage} ORDER BY GG.CONTENTNO LIMIT 5) GGG
+	ORDER BY GGG.CONTENTNO DESC;
+      ]]>	   
+  </select>
+  
+  <select id="getSubsTotal" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+  	SELECT  DISTINCT COUNT(GG.CONTENTNO) FROM(
+          SELECT C.CONTENTNO, S.MEMNO, T.GROUPNO
+          FROM BIT_TITLE T JOIN BIT_CONTENT C 
+          ON T.TITLENO = C.TITLENO 
+          JOIN CONTENT_SPECIFIC S ON C.CONTENTNO=S.CONTENTNO
+          ) GG
+	JOIN BIT_GROUP_MEMBERS BG ON BG.MEMNO=GG.MEMNO
+	WHERE BG.GROUPNO = #{groupno} AND GG.GROUPNO= #{groupno};   
+  </select>
+  
+  
+  <select id="selectedGroup" parameterType="java.lang.Integer" resultMap="beanMap">
+      SELECT GROUPNO, GROUPNAME FROM BIT_GROUP WHERE GROUPNO = #{group}
+  </select>
+  
+  <insert id="getInsertGroup" parameterType="bean" useGeneratedKeys="true" keyProperty="groupno" keyColumn="contentno">
+  	INSERT INTO BIT_GROUP(GROUPNAME, CODE, INTRODUCE, ACTIVEGROUP, CREATOR,CREATED_DATE)
+	VALUES(#{groupname},#{code},#{introduce},#{activegroup},#{creator},NOW());    
+  </insert>
+  
+  <insert id="getRegGroupMember" parameterType="bean">
+      	INSERT INTO BIT_GROUP_MEMBERS(GROUPNO, MEMNO, LEVEL, ALARM, REG_DATE, ACCEPT)
+	VALUES(#{groupno},#{memno},'L',1,NOW(),1);
+  </insert>
+  
+  <select id="getSearchGroup" parameterType="java.lang.String" resultMap="beanMap">
+	SELECT GROUPNO, GROUPNAME, CREATED_DATE FROM BIT_GROUP WHERE GROUPNAME LIKE #{searchValue};
+  </select>
+  
+  <select id="getSearchGroupDetail" parameterType="java.lang.Integer" resultMap="beanMap">
+      	SELECT 
+      	G.GROUPNAME, G.CREATED_DATE, G.INTRODUCE, G.CREATOR, G.ACTIVEGROUP, 
+      	M.PHOTO, M.NAME 
+      	FROM BIT_GROUP G 
+      	JOIN BIT_MEMBERS M ON G.CREATOR=M.MEMNO
+      	WHERE G.GROUPNO= #{groupNo}; 
+  </select>
+  
+  <select id="contentDisplay" parameterType="java.lang.Integer" resultMap="beanMap">   
+     	SELECT C.GIT_REPOSITORY, C.GIT_ID, C.GIT_PWD, C.CONTENTNO, S.LEVEL, C.EDITED_DATE, 
+     	S.MEMNO, M.NAME, M.EMAIL, C.CONTENT_TITLE, S.CONTENT 
+     	FROM BIT_CONTENT C 
+      	JOIN CONTENT_SPECIFIC S ON C.CONTENTNO=S.CONTENTNO
+      	JOIN BIT_MEMBERS M ON S.MEMNO = M.MEMNO 
+      	WHERE C.CONTENTNO=#{contentno};
+  </select>
+  
+  <select id="contentDisplaybyTitle" parameterType="java.lang.Integer" resultMap="beanMap">
+     SELECT C.CONTENTNO, S.MEMNO, C.CONTENT_TITLE, S.CONTENT, C.EDITED_DATE, C.GIT_REPOSITORY, C.GIT_ID, C.GIT_PWD 
+     FROM BIT_CONTENT C 
+     JOIN CONTENT_SPECIFIC S 
+     ON C.CONTENTNO = S.CONTENTNO
+     WHERE C.TITLENO=#{titleno};      
+  </select>
+  
+  <select id="submitPost" parameterType="bean" resultMap="beanMap">      
+	SELECT BM.GIT_PWD, BM.GIT_ID, BM.MEMNO, T.TITLENO, T.TITLE FROM BIT_MEMBERS BM
+	JOIN BIT_GROUP_MEMBERS M ON BM.MEMNO = M.MEMNO
+	JOIN BIT_TITLE T ON M.GROUPNO = T.GROUPNO WHERE BM.MEMNO =#{memno} AND T.GROUPNO=#{groupno};
+  </select>
+  
+  <insert id="inputSubmitPost" parameterType="bean" useGeneratedKeys="true" keyProperty="contentno" keyColumn="contentno">
+	INSERT INTO BIT_CONTENT
+	(EDITED_DATE, OPENTO, OPENORCLOSE, TITLENO, 
+	CONTENT_TITLE, LOCKER, COUNT, VALIDATION, 
+	GIT_ID, GIT_PWD, GIT_REPOSITORY)
+	VALUES(NOW(), #{opento}, 'O', #{titleno}, 
+	#{content_title},0, 0, 0, 
+	#{git_id}, #{git_pwd}, #{git_repository});    
+  </insert>
+  
+
+  <insert id="inputSubmitPost2" parameterType="bean" useGeneratedKeys="true" keyProperty="contentno" keyColumn="contentno">
+	INSERT INTO CONTENT_SPECIFIC(EDITED_DATE, CONTENT, MEMNO, CONTENTNO, LEVEL)
+	VALUES(NOW(), #{content},#{memno},#{contentno},'C');  
+  </insert>
+  
+  
+  <select id="getGroupAdmin" parameterType="java.lang.Integer" resultMap="beanMap">
+     	SELECT G.GROUPNO, G.GROUPNAME, G.CODE, G.ACTIVEGROUP, G.INTRODUCE, M.MEMNO, M.LEVEL, BM.NAME, BM.EMAIL, BM.PHOTO 
+	FROM BIT_GROUP G
+	JOIN BIT_GROUP_MEMBERS M ON G.GROUPNO=M.GROUPNO
+	JOIN BIT_MEMBERS BM ON BM.MEMNO = M.MEMNO
+	WHERE G.GROUPNO=#{groupno};	
+  </select>
+  
+  <select id="getGroupAdminTitle" parameterType="java.lang.Integer" resultMap="beanMap">
+          SELECT TITLENO, TITLE, ACTIVATE, CREATED_DATE FROM BIT_TITLE WHERE GROUPNO=#{groupno};
+  </select>
+  
+  <update id="groupAdminTitle_submit" parameterType="bean">
+      	UPDATE BIT_TITLE SET TITLE=#{title} WHERE TITLENO=#{titleno};     
+  </update>
+  
+  <insert id="groupAdminTitle_add" parameterType="bean" useGeneratedKeys="true" keyProperty="titleno" keyColumn="titleno">
+      	INSERT INTO BIT_TITLE(GROUPNO, TITLE, CREATED_DATE)VALUES(#{groupno},#{title},NOW());
+  </insert>
+  
+  <insert id="groupAdminTitle_order" parameterType="java.lang.Integer">
+      	INSERT INTO BIT_TITLE_ORDER(TITLENO)VALUES(#{titleno});
+  </insert>
+  
+  <select id="groupAdmin_displayContent" parameterType="java.lang.Integer" resultType="bean">
+      	SELECT C.CONTENTNO, M.EMAIL, M.NAME, M.PHOTO, C.EDITED_DATE, C.CONTENT_TITLE, S.CONTENT 
+	FROM BIT_CONTENT C 
+	JOIN CONTENT_SPECIFIC S 
+	ON S.CONTENTNO=C.CONTENTNO
+	JOIN BIT_MEMBERS M ON M.MEMNO = S.MEMNO
+	WHERE C.TITLENO=#{titleno} ORDER BY C.CONTENTNO DESC;
+  </select>
+  
+  <select id="getDeleteDetailList" parameterType="java.lang.Integer" resultType="bean">
+      	SELECT CONTENTNO, GIT_ID, GIT_PWD, GIT_REPOSITORY FROM BIT_CONTENT WHERE TITLENO = #{titleno};
+  </select>
+  
+  <select id="getDeleteContentData" parameterType="java.lang.Integer" resultType="bean">
+      	SELECT CONTENTNO, GIT_ID, GIT_PWD, GIT_REPOSITORY FROM BIT_CONTENT WHERE CONTENTNO= #{contentno};
+  </select>
+  
+  <delete id="getDeleteSpecific" parameterType="java.lang.Integer">
+      	DELETE FROM CONTENT_SPECIFIC WHERE CONTENTNO=#{contentno}
+  </delete> 
+   
+  <delete id="getDeleteContentno" parameterType="java.lang.Integer">
+      	DELETE FROM BIT_CONTENT WHERE CONTENTNO=#{contentno}
+  </delete>
+  
+  <delete id="getDeleteTitleno" parameterType="java.lang.Integer">
+          DELETE FROM BIT_TITLE WHERE TITLENO=#{titleno}
+  </delete>
+  
+  
+  <select id="getCreatorValue" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+      	SELECT CREATOR FROM BIT_GROUP WHERE GROUPNO= #{groupno};
+  </select>
+  
+  <select id="groupAdmin_searchUsers" parameterType="java.lang.String" resultType="bean">
+          <![CDATA[
+          SELECT MEMNO, PHOTO, EMAIL, NAME FROM BIT_MEMBERS WHERE NAME LIKE #{name};
+          ]]>
+  </select>
+  
+  <select id="groupAdmin_memDataValidation" parameterType="java.lang.String" resultType="java.lang.Integer">
+      	SELECT MEMNO FROM BIT_MEMBERS WHERE EMAIL=#{email };
+  </select>
+  
+  <insert id="memberChange_btn_submit" parameterType="bean">
+         INSERT INVITATION
+         (GROUPNO, INVITERNO, INVITETYPE, MEMNO)
+         VALUES(#{groupno},#{inviterno},1,#{memno});
+  </insert>
+  
+  <select id="personal_groupInvited" parameterType="java.lang.Integer" resultType="bean">
+         SELECT INVITNO, GROUPNO, INVITERNO, INVITETYPE FROM INVITATION WHERE MEMNO=#{memno};
+  </select>
+  
+  <insert id="personal_answerInvite" parameterType="bean">
+         INSERT INTO BIT_GROUP_MEMBERS
+         (GROUPNO, MEMNO, LEVEL, ALARM, REG_DATE, ACCEPT)
+         VALUES(#{groupno},#{memno},'F',1,NOW(),1);
+  </insert>
+  
+  <delete id="personal_groupInvited_delete" parameterType="java.lang.Integer">
+          DELETE FROM INVITATION WHERE INVITNO = #{invitno };
+  </delete>  
+  
+  <update id="groupChange_btn_submit" parameterType="bean">
+          UPDATE BIT_GROUP 
+          SET GROUPNAME=#{groupname}, CODE=#{code}, ACTIVEGROUP =#{activegroup}, INTRODUCE=#{introduce}
+	WHERE GROUPNO = #{groupno};	      
+  </update>
+  
+  <!-- 개발자 장윤용 -->
+  <select id="getMember" parameterType="java.lang.Integer" resultMap="beanMap">
+    select name, photo, email, phone, git_id
+    from bit_members
+    where memno=#{memno};
+  </select> 
+  
+  <update id="pwdUpdate" parameterType="bean">
+  update bit_members set
+  pwd=#{pwd}
+  where memno=#{memno};
+  </update>
+  
+  <update id="emailUpdate" parameterType="bean">
+  update bit_members set
+  email=#{email}
+  where memno=#{memno};
+  </update>
+  
+  <update id="phoneUpdate" parameterType="bean">
+  update bit_members set
+  phone=#{phone}
+  where memno=#{memno};
+  </update>
+  
+  <update id="photoUpdate" parameterType="bean">
+  update bit_members set
+  photo=#{photo}
+  where memno=#{memno};
+  </update> 
+  
+  <select id="selectGroup" parameterType="java.lang.Integer" resultMap="beanMap">
+    select g.groupname, m.level, m.alarm, m.accept, m.groupno, m.memno, m.reg_date
+    from bit_group g join bit_group_members m using (groupno) where memno = #{memno};
+  </select>
+  
+  <delete id="groupWithdraw" parameterType="bean">
+    delete from bit_group_members where groupno=#{groupno} and memno=#{memno};
+  </delete>
+  
+  <delete id="groupMembersWithdraw" parameterType="bean">
+    delete from bit_group_members where groupno=#{groupno};
+  </delete>
+  
+  <delete id="groupDelete" parameterType="bean">
+    delete from bit_group where groupno=#{groupno}; 
+  </delete>
+  
+  <update id="alarmChecked" parameterType="bean">
+  update bit_group_members set
+  alarm=#{alarm}
+  where memno=#{memno} and groupno=#{groupno};
+  </update> 
+  <!-- 개발자 장윤용 끝 -->
+</mapper>

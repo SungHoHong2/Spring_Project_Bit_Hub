@@ -1,0 +1,432 @@
+	.data_box_hidden{
+		background : #efefef;
+		padding : 10px;
+		margin : 10px;
+	}
+	
+	.data_box_hidden > p{
+		background : #8A8A8A;
+		color : white;
+	
+	}
+	
+
+	#ouput_contentno{
+	display: block;
+	float: left;
+	width: 20px;
+	height: 24px;
+	margin-left: 15px;
+	margin-top: 10px;
+	color: rgb(36, 109, 218);
+	font-size: 20px;
+	font-weight: bold;
+	}	
+
+	.gitfolders{
+    		list-style-image: url('../img/content/foldericon_s.png');
+	}
+	
+	.gitfiles{
+    		list-style-image: url('../img/content/fileicon_s.png');
+	}	
+	
+	.gitnothing{
+		list-style-type: none;
+	}
+	
+
+	.highlight {
+         		border: 2px solid white;
+         		width : 200px;
+		color : white;         		
+         		font-size: 15px;
+ 	}
+ 	
+ 	#opendetail_wrapper{
+ 	width : 473px;
+ 	min-height : 508px;
+ 	background-image : url('../img/content/content_background.png');
+ 	position : absolute;
+ 	left : 317px;
+ 	top : 50px;
+ 	z-index : 300;
+ 	overflow : hidden;
+ 	}
+ 		
+   .hidden_div{
+    display : none;
+   }	
+ 	
+    #difference{
+	display : none;
+    } 	
+    
+    #changeList_Total_hidden{
+    	display : none;
+    }
+ 	
+   #changedDataChecker{
+	background: #0C0C0C;
+	width: 318px;
+	height: 499px;
+	position: absolute;
+	z-index: 700;
+	top: 51px;
+	left: 0px;
+	overflow: scroll;
+   }	
+ 
+ #backtoDefault{
+   position : absolute;
+   left : 20px;
+   top : 10px;
+ }	
+ 	
+    #editor { 
+        position: relative;  
+        width : 474px;
+        height : 533px;
+    }
+ 	
+ 	#opendetail_display{
+ 	display:block;
+ 	float:left;
+ 	position : relative;
+ 	background : red;
+ 	}
+ 	
+ 	.opendetail_display{
+ 	display:block;
+ 	float:left;
+ 	position : relative;
+ 	background : red;
+ 	width: 400px;
+ 	height : 400px;
+ 	}
+ 	
+ 	#opendetail_buttonGroup{
+ 	display:block;
+ 	width : 474px;
+ 	height : 47px;
+ 	float:left;
+ 	background : #242424;
+ 	position : relative;
+ 	}
+ 	
+ 	
+ 	#opendatail_shadow{
+ 	position: absolute;
+	width: 100%;
+	height: 8px;
+	background-image: url('../img/content/content_shadow.png'); 
+	z-index : 20;	
+ 	}
+ 	
+ 	
+ 	#download_btn{ 
+ 	background-image: url('../img/content/content_download.png');
+ 	display : block;
+ 	width : 20px;
+ 	height : 25px;
+ 	margin-left : 10px;
+ 	margin-top : 10px;
+ 	margin-right : 10px;
+ 	margin-bottom : 10px;
+ 	float : left;
+ 	}
+ 	
+ 	
+ 	
+ 	#update_btn{
+ 	background-image: url('../img/content/upload.png');
+	display: block;
+	width: 19px;
+	height: 26px;
+	margin-left: 10px;
+	margin-top: 9px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	float: left;
+ 	}
+ 	
+ 	
+ 	#download_btn:hover{
+		opacity : 0.8;
+	}
+	
+ 	
+ 	#delete_btn{
+	background-image: url('../img/content/delete.png');
+	display: block;
+	width: 20px;
+	height: 19px;
+	margin-left: 10px;
+	margin-top: 13px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	float: left;
+ 	}
+ 	
+ 	
+ 	
+ 	#top_layer{
+ 		position : relative;
+ 		width : 100%;
+ 		height : 50px;
+ 		text-align : left;
+ 	}
+ 	
+ 	 #top_layer_text{
+ 	  	display : block;
+ 	  	color : rgb(90, 90, 90);
+ 	  	font-size : 15px;
+ 	  	width : 300px;
+ 	  	float : left;
+ 	  	margin-left : 10px;
+ 	 	margin-top : 14px;
+ 	 }
+ 	 
+ 	#downloadAll{
+ 		display : block;
+ 		float : left;
+ 		background-image : url('../img/content/content_all_download.png');
+ 	 	width:20px;
+ 	 	height : 24px;
+ 	 	margin-left : 19px;
+ 	 	margin-top : 14px;
+ 	}
+ 	
+ 	
+ 	#top_layer_small_line{
+	display: block;
+	float: left;
+	width: 2px;
+	height: 22px;
+	margin-left: 17px;
+	margin-right: -7px;
+	margin-top: 14px;
+	background: rgb(167, 166, 166);
+		
+ 	}
+ 	
+ 	#top_layer_shadow{
+ 		display : block;
+ 		width : 100%;
+ 		height : 8px;
+ 		background-image : url('../img/content/content_shadow.png');
+ 	}
+ 	
+ 	#output_wrapper{
+ 		 display : block;
+ 		 float : left;
+ 		 width : 790px;
+ 		background : rgb(83, 83, 83);
+ 		color : white;
+ 	}
+ 	
+ 	#output{	
+ 		display: block;
+		float: left;
+		width: 790px;
+		min-height: 500px;
+		margin-left: -4px;
+	}
+ 	
+ 	#changeList_wrapper{
+ 		display : block;
+ 		float : left;
+ 		background : rgb(228, 228, 228);
+ 		width : 318px; 		
+ 	}
+ 	
+ 	
+ 	.noDesign{
+ 	    list-style-type: none;
+ 	    margin-left: -72px;
+ 	    
+ 	
+ 	}
+ 	
+ 	#changeList_show{
+ 		background : red;
+ 		height : 100px;
+ 		width : 100px;
+ 	}
+ 	
+ 	#content_data_wrapper{
+ 		display : block;
+ 		float : right;
+ 		position : relative;
+ 		background : white;
+ 		width : 472px; 	
+ 	}
+ 	
+ 	#textareaHidden{
+ 		display : none;
+ 	}
+ 	
+ 	
+ 	.updateList{
+ 	margin-left : 10px;
+ 	margin-top : 10px;
+ 	}
+ 	
+ 	
+ 	.updateList>img{
+ 		margin-right : 10px;
+ 	}
+ 	#top_layer_date{
+	display: block;
+	float: right;
+	color: rgb(134, 134, 134);
+	font-size: 12px;
+	margin-top: 15px;
+	margin-right: 17px;
+ 	}
+ 	
+ 	#content_comment_input_wrapper{
+ 	background: rgb(253, 253, 253);
+	height: 50px;
+	width: 790px;
+	position: relative;
+	float: left;
+ 	}
+ 	
+ 	
+ 	
+ 	
+ 	#content_comment_input_shadow{
+ 	background-image: url('../img/content/content_bottom_shadow.png');
+	height: 22px;
+	width: 790px;
+	position: relative;
+	float: left;
+ 	}
+ 	
+ 	
+ 	#typeintoContent{
+ 	  	border: none;
+		background: transparent;
+		margin-top: 6px;
+		margin-left: 8px;
+ 	}
+ 	
+ 	#typeintoContent_Design{
+ 		display: block;
+		float: left;
+		background: red;
+		width: 631px;
+		height: 33px;
+		margin-left: 22px;
+		margin-top: 9px;
+		margin-right: 9px;
+		border-radius: 20px;
+ 		background: linear-gradient(rgb(192, 187, 187), rgb(238, 238, 238));
+ 	}
+ 	
+ 	
+ 	.content_data_users_table td{
+ 		padding : 11px;
+ 	}
+ 	
+ 	
+ 	.content_data_users_talkBox{
+ 	
+ 	}
+ 	
+ 	#submitUpdate{
+ 	display: block;
+	width: 112px;
+	height: 30px;
+	margin-top: 20px;
+	margin-left: 10px;
+	float: left;
+	font-weight: bold;
+	color : rgb(97, 97, 97);
+ 	}
+ 	
+ 	.content_data_wrapper{
+ 	display: block;
+	width: 472px;
+	height: 82px;
+	float: left;
+	position: relative;
+	background : rgb(228, 228, 228);
+ 	}
+ 	
+ 	.content_data_imagebox{
+	margin-left: 15px;
+	margin-top: 14px;
+	display: block;
+	float: left;
+ 	}
+ 	
+ 	.content_data_content{
+	background: white;
+	margin-left: 7px;
+	margin-top: 10px;
+	display: block;
+	float: left;
+	width: 388px;
+	height: 60px;
+	padding: 13px;
+	border-radius: 7px;
+	
+ 	}
+ 	
+ 	.content_data_date{
+ 	float : right;
+ 	display : block;
+ 	position : relative;
+ 	}
+ 	
+ 	.content_commitsha{
+	position: absolute;
+	margin-left: 400px;
+	margin-top: 42px;
+	background-image: url('../img/content/package.png');
+	width: 52px;
+	height: 41px;
+ 	}
+ 	
+ 	.content_commitsha:hover{
+ 	background-image : url('../img/content/package_open.png');
+ 	}
+ 	
+ 	
+ 	.content_commitsha_using{
+ 	position: absolute;
+	margin-left: 400px;
+	margin-top: 42px;
+	background-image: url('../img/content/package_open.png');
+	width: 52px;
+	height: 41px;
+ 	}
+ 	
+ 	#newfolderLi{
+ 	margin-left:18px;
+ 	margin-top:8px;
+ 	}
+ 	
+ 	#output_addFiles{
+ 	display: block;
+	float: left;
+	width: 27px;
+	height: 25px;
+	margin-left: 19px;
+	margin-top: 13px;
+	background-image: url('../img/content/content_createfile.png');
+ 	}
+ 	
+ 	#output_addDir{
+ 		display: block;
+		float: left;
+		width: 27px;
+		height: 28px;
+		margin-left: 19px;
+		margin-top: 12px;
+		background-image: url('../img/content/content_createfolder.png');
+		margin-right:8px;
+ 	}
+ 	

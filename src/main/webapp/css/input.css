@@ -1,0 +1,487 @@
+#form_wrapper{
+	margin-left:65px;
+	padding-top:20px;
+	text-align: center;
+}
+
+#content_title_text{
+ font-weight: bold;
+ font-size : large;
+ margin-left  : 30px;	
+ padding-top : 20px;
+}
+
+#texty{
+ margin-left : 20px;	 
+}
+p{font-family: Arial, Helvetica, sans-serif}
+
+#grey-line{
+	width : 2px;
+	height : 100%;
+	background : #E4E4E4;
+	position : absolute;
+	left : 170px;
+}
+
+.texty2{
+	color : #90a1b1;	
+}
+
+.buttons_group{
+	display : block;
+	width : 700px;
+	text-align : center;
+	float : left;
+	margin-left:60px;
+	margin-top:20px;
+}
+
+
+.cssmenu_wrapper{
+   	position :absolute;
+   	width:793px;
+   	top:60px;
+   	left:0px;
+}	
+
+
+
+
+
+/* horizontal menu for input pages */
+
+/* Base Styles */
+#cssmenu ul,
+#cssmenu li,
+#cssmenu a {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 1;
+  font-family: 'Lato', sans-serif;
+}
+#cssmenu {
+  border: 2px solid #DBDFE0;
+  width: auto;
+}
+#cssmenu ul {
+  zoom: 1;
+  background: -webkit-linear-gradient(top, #FFFFFF 0%, #CFCFCF 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@top-color', endColorstr='@bottom-color', GradientType=0);
+  padding: 5px 10px;
+}
+#cssmenu ul:before {
+  content: '';
+  display: block;
+}
+#cssmenu ul:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+#cssmenu li {
+  float: left;
+  margin: 0 5px 0 0;
+  border: 1px solid transparent;
+}
+#cssmenu li a {
+  padding: 8px 15px 9px 15px;
+  display: block;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid transparent;
+  font-size: 13px;
+  font-weight: bold; 
+}
+#cssmenu li.active {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+#cssmenu li.active a {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  display: block;
+  background: #A8B0B1;
+  color:white;
+  box-shadow: inset 0 5px 10px #3F4C4D;
+}
+#cssmenu li:hover {
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  color:white;
+}
+#cssmenu li:hover a {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  display: block;
+  color:white;
+  background: #A8B0B1;
+  box-shadow: inset 0 5px 10px #3F4C4D;
+}
+
+/*
+  checkbox api  
+*/
+
+.onoffswitch {
+    position: relative; width: 90px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+    display: none;
+}
+
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 1px solid #999999; border-radius: 20px;
+}
+
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+    -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+    font-size: 14px; color: white; font-weight: bold;
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+.onoffswitch-inner:before {
+    content: "활성화";
+    padding-right:10px;
+    background-color: #2FCCFF; color: #FFFFFF;
+}
+
+.onoffswitch-inner:after {
+    content: "비활성화";
+    padding-right: 10px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+}
+
+.onoffswitch-switch {
+    display: block; width: 20px; margin: 6px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    position: absolute; top: 0; bottom: 0; right: 56px;
+    -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
+    -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
+
+
+
+.titleChange_labels{
+	display:block;
+	width:756px;
+	position:relative;
+	float:left;
+	margin-bottom:10px;
+	margin-left:130px;		
+}
+
+#titleChange_var_wrapper{
+	margin-top:40px;
+}
+
+.titleChange_table_column{
+	display :block;
+	float:left;
+	margin-left :22px;
+	margin-top:7px;
+}
+
+.columntexty{
+	display : block;
+	float:left;
+	margin-right:74px;
+	color:#90a1b1;
+}
+
+.columntexty > span{
+	margin-right:50px;
+}
+
+.white_space_height_groupAdmin{
+	height : 56px;
+}
+
+
+#addTitle_Activate{
+	margin-left:372px;
+	margin-bottom:8px;
+	margin-top:10px;
+	padding:22px;
+	opacity:0.5;
+}
+
+#addTitle_Activate > img{
+	width:30px;
+	height:30px;
+}
+
+
+#addTitle_wrapper{
+	margin-left :-14px;
+}
+
+#addTitle_btn{
+
+}
+
+
+#input_page_body{
+	
+	padding-bottom:20px;
+	
+}
+
+#titleChange_labels_button{
+	background : red;
+}
+
+#content_display_titleAdd{
+	background : red;
+}
+
+
+.contents_display_byTitle{
+	width : 515px;
+	position: relative;
+	display : block;
+	color : grey;
+}
+
+
+#invited_Members{
+	background : red;
+	width:100%;
+}
+
+
+#membertableforLeaders{
+	width : 100%;
+	color : grey;
+}
+
+#membertableforLeaders thead{
+	background : #efefef;
+}
+
+
+#membertableforLeaders td{
+	padding : 10px;
+}
+
+#searchspan{
+	color : orange;
+}
+
+
+#searchUsers_keyup{
+	border : 2px solid orange;
+}
+
+.groupAdmin_Line{
+	height : 50px;
+}
+
+.texty3{
+	display : block;
+	float: left;
+	padding-left:21px;
+	padding-top: 7px;
+	width : 100px;
+	height : 34px;
+	font-weight: bold;
+	text-align:left;
+	color : #90a1b1;
+}
+
+.texty4{
+	display : block;
+	float: left;
+	padding-left:13px;
+	padding-top: 7px;
+	width : 200px;
+	height : 34px;
+	font-weight: bold;
+	text-align:left;
+	color : #90a1b1;
+}
+
+
+/* 개발자 장윤용 */
+
+.follower-border{
+	width:410px;
+	margin-left: 15px;
+	border: 1px solid #C9C9C9 ;
+	border-radius: 5px;
+}
+
+.follower-table{
+	border: 1px solid #9daccc;
+	background: #F3F2FA;
+	margin-top:5px;
+	margin-bottom:5px;
+	margin-left:-7px;
+	border-radius: 3px;
+	overflow:hidden;
+}
+
+.follower-circle{
+	width: 36px;
+	height: 36px;
+}
+
+.add-remove{
+  margin-right:5px;
+  color: #777;
+}
+
+#follower-invitation{
+	margin-right:90px;
+	float:right;
+}
+
+.hidden-space{
+	height:50px;
+}
+
+.invitation-message2{
+	float:left;
+	width:440px;
+}
+
+.invisible-tr{
+	display:none;
+}
+
+#request-menue{
+  width:100px;
+  float:left;
+  margin-left: 7px;
+}
+
+
+#filedrag
+{
+	/* display: none; */
+	font-weight: bold;
+	text-align: left;
+	padding: 1em 0;
+	margin: 1em 0;
+	color: #555;
+	border: 1px solid #C9C9C9;
+	border-radius: 5px;
+	cursor: default;
+}
+
+#filedrag.hover
+{
+	color: #9daccc;
+	border-color: #9daccc;
+	border-style: solid;
+	box-shadow: inset 0 3px 4px #888;
+}
+
+.fileUpload {
+	position: relative;
+	overflow: hidden;
+	margin: 10px;
+}
+.fileUpload input.upload {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+#max-file{
+	position: absolute;
+	top:22px;
+	right:-500px;
+}
+
+#filedrag-p{
+	text-align: center;
+}
+
+.file-detail{
+	margin-left:12px;
+}
+
+.form-wrap{
+	margin-right:65px;
+}
+.page{
+	color: black;
+	margin: 5px;
+}
+.pageSize{
+	color: black;
+}
+
+.announceDetail{
+	color: black;
+}
+
+#announce-detail-wrap{
+	margin: 65px;
+	margin-top:35px;
+}
+
+#announce-title{
+	height: 35px;
+	font-size: 20px;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+
+#announce-info{
+	height: 25px;
+}
+
+#announce-writer{
+	color: #0982D9;
+	margin-right: 10px;
+}
+
+#announce-read{
+	margin-right: 10px;
+}
+
+#announce-content{
+	padding-top:25px;
+	padding-bottom:25px;
+}
+
+#annouce-download{
+	color:#0982D9;
+}
+
+.file-download{
+	color:black;
+}

@@ -1,0 +1,613 @@
+@CHARSET "utf-8";
+#black_screen{
+	background : black;
+	opacity : 0;
+	position : absolute;
+	width : 100%;
+	height : 2000px;
+	z-index : 900;
+}
+
+#loading_icon{
+	opacity : 0;
+	position : absolute;
+	top : 183px;
+	left : 10px;
+	z-index : 901;
+	width : 100%;
+}
+
+#loading_text{
+	width : 300px;
+	color : white;
+	font-size : 20px;
+	line-height: 40px;
+}
+
+
+
+/* head.html */
+#class{
+	width : 300px;
+	float : left;
+	position : absolute; 
+	height : 55px;
+	background-image: url("../img/top/bg_1.png");
+	color : white;	
+}
+
+#title{
+	width : 650px;
+	display : block;
+	position : absolute;
+	height : 60px;
+	left: 300px;
+}
+
+
+.title_btn{
+	width : 103px;
+	height : 30px;
+	text-align:center;
+	padding-top:5px;
+	background-image: url("../img/top/label_btn.png");
+	background-size: 103px 30px;
+    	background-repeat: no-repeat;
+	margin-right : 10px;
+	color : white;
+	margin-top:25px;
+}
+
+
+#title_addbtn{
+	width : 103px;
+	height : 30px;
+	text-align:center;
+	padding-top:5px;
+	background-image: url("../img/top/add_label.png");
+	margin-right : 10px;
+	color : white;
+	margin-top:25px;
+}
+
+#groupLogo{
+	background-image : url('../img/top/top_logo_renew.png');
+	width:149px;
+	height:30px;
+	left:16px;
+	top:13px;
+	position:absolute;
+}
+
+#groupbtn{
+	background-image: url("../img/top/label.png");
+	width : 110px;
+	height : 30px;
+	text-align : center;
+	padding-top:5px;
+	margin-top: 25px;
+	margin-left : 180px;
+}
+
+#groupbtn:hover{
+	opacity : 0.5;
+}
+	
+#imgarrow{
+	padding-left:5px;
+}
+	
+	
+#submenu{
+          top:55px;
+  	width : 300px;
+	height : 0px;
+	background : #292626;
+	opacity:0;
+	position : absolute;
+	z-index:0;
+	overflow : hidden;
+}
+
+.submemGroupstable {
+	color : white;
+	width : 100%;
+	margin-left : 10px;
+}
+
+
+.submemGroupstable td{
+	padding : 10px;
+ 
+}
+
+.submemGroupstable_wrapper:hover{
+	background : #0066FF;
+}
+
+
+#submenGroups_searchInput{
+	
+}
+
+
+#submenGroups_searchOutput{
+	position : absolute;
+	left : 300px;
+	background : black;
+	width : 300px;
+	margin-top:11px;
+	opacity : 0.7;
+	z-index: 200;
+	
+}
+
+#submenGroups_describe{
+	position : absolute;
+	left : 600px;
+	background : black;
+	width : 300px;
+	margin-top:11px;
+	opacity : 0.7;
+	z-index: 200;
+}
+
+
+.groupInviteBtn{
+	color : rgb(116, 255, 116);
+}
+
+.searchGrouptable{
+	width : 300px;
+}
+
+.searchGrouptable td{
+	padding : 10px;
+}
+.searchGrouptable_wrapper:hover{
+	background:#0066FF;
+}
+
+
+.groupChangeBtn{
+	color : white;
+}
+
+#createGroups{
+	background-color : #0066FF;
+	width : 100%;
+}
+
+#createGroups td{
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+#createGroups_btnWrapper{
+	padding-left : 30px;
+}
+
+
+/*frame.html*/
+#wrapper{
+	margin : 0 auto;
+	width : 1100px;
+}
+
+#head{
+ 	position : absolute;
+ 	display : block;
+ 	z-index : 11;
+}
+
+#sub{
+	position : absolute;
+ 	display : block;
+ 	top:70px;
+ 	width: 300px;
+ 	z-index : 10;
+ 	margin-right : 20px;
+ 	
+}
+
+#body{
+	 
+	background : white;
+	top:70px;
+	left : 320px;
+	position : relative;
+ 	width : 790px;
+}
+
+body{
+	background-image: url("../img/top/background.png");
+	background-repeat:repeat-x;
+}
+
+
+/*
+ * sub.jsp 
+ */
+ 
+ #sub1 td{
+     background : #3e678d;	
+}
+
+#sub1{
+     width : 250px;
+     height : 50px;
+}
+
+#sub_date_btn{
+	width : 100px;
+	height : 25px;
+	display: block;
+	position : relative;
+	float : left;
+	background-image: "";
+	text-align : center;
+	padding-top : 4px;
+	font-size:90%
+}
+
+#sub_leader_btn{
+	width : 100px;
+	height : 25px;
+	display: block;
+	position : relative;
+	float : left;
+	background-image: url("");
+	text-align : center;
+	padding-top : 4px;
+	font-size:90%
+}
+
+#sub_follower_btn{
+	width : 100px;
+	height : 25px;
+	display: block;
+	position : relative;
+	float : left;
+	background-image: url("");
+	text-align : center;
+	padding-top : 4px;
+	font-size:90%
+}
+
+#sub_data{
+	background : white;
+	display :block;
+	position : relative;
+	float: left;
+	overflow : hidden;
+	margin-bottom : 20px;
+}
+
+#sub_data_table{
+	width : 280px;
+}
+
+#sub_data_table td{
+	padding : 5px;
+}
+
+/*displayContent.jsp*/
+
+#commit_wrapper{
+	width : 150px;
+	background : white;	
+	position : absolute;
+	margin-top : 15px;
+	padding : 10px;
+}
+
+
+#folders_wrapper{
+	width : 150px;
+	background : white;	
+	position : absolute;
+	margin-top : 15px;
+	padding : 10px;
+}
+
+
+#contents_wrapper{
+	width : 450px;
+	background : white;
+	margin-top : 15px;
+	position : absolute;
+	left : 170px;
+	padding : 10px;
+}
+
+
+#displayContent_table{
+	margin-left : 10px;
+	width : 850px;
+}
+
+#displayContent_table td{
+	padding : 10px;
+}
+
+#displayContent_count{
+	background : #227dd2;
+	color : white;
+	padding : 7px;
+}
+
+
+.content_commitinfo_line{
+ 	margin-bottom : 15px;	
+}
+
+.content_commitinfo_img{
+	margin-right: 15px;
+}
+
+/*sub.jsp*/
+
+
+/* title.jsp */
+#totalTitleNum{
+display : none;
+}
+
+#title_ul{
+         list-style-type: none; 
+         padding: 0; 
+         width: 410px; 
+         float:left;
+         margin-top : 31px;
+         margin-left: -10px;
+         text-align : center;
+}
+
+#title_ul li{
+	padding-top:6px;
+	display : inline;
+	color : white;
+}
+
+#sortable-1 li{
+	display :inline;
+}
+
+.title_btn_ul_design{
+	margin-right : 10px;
+	width : 102px;
+	height : 29px;
+	padding-top:7px;
+	padding-left:37px;
+	padding-right:37px;
+	padding-bottom:6px;
+	background-image : url('../img/top/label_btn.png');
+	background-repeat: no-repeat;
+}
+
+.title_btn_ul_design:hover{
+	opacity:0.5;
+}
+
+.groupAdmin, .personalInfo{
+	background-image : url('../img/top/label.png');	
+	padding-top:7px;
+	background-repeat: no-repeat;	
+	position : relative;
+	float:left;
+	color : white;
+	width : 115px;
+	height : 50px;
+	margin-right:10px;
+	text-align:center;
+}
+
+#personalTab_wrapper{
+ 	position:absolute;
+ 	left : 574px;
+ 	top:26px; 
+ 	width :300px; 
+ 	height:29px;
+ 	overflow:hidden;   
+}
+
+#groupAdmin{
+         color:orange;
+}
+
+#groupAdmin:hover{
+         color:white;
+         background-image : url('../img/top/manager_btn.png');
+}
+
+#personalInfo{
+	color:rgb(125, 224, 125);
+}
+
+#personalInfo:hover{
+	color:white;
+ 	background-image : url('../img/top/message_btn.png');	
+}
+
+#blankBtn{
+	padding-top:7px;
+	background-repeat: no-repeat;	
+	position : relative;
+	float:left;
+	width : 115px;
+	height : 50px;
+	margin-right:10px;
+}
+
+#nextBtn_wrapper{
+	position : absolute;
+	top:28px;	
+	left : 370px;
+}
+
+#nextBtn_wrapper:hover{
+	opacity:0.5;
+}
+
+#title_Paging_Custom{
+	position:absolute;
+	left : 18px;
+	top:0px;
+}
+
+#prevBtn_wrapper{
+	position : absolute;
+	left:-7px;
+	top:28px;
+}
+
+#prevBtn_wrapper:hover{
+	opacity:0.5;
+}
+
+
+
+
+/*
+* 개발자 장윤용 
+*/
+
+#invisible-messgeAlarm{
+	position: absolute;
+	top: 55px;
+	left: 418px;
+	border:2px solid #ddd;
+	background-color: white;
+	display: none;
+}
+
+.alarm-body-warp{
+	width: 390px;
+	max-height: 190px;
+	overflow: auto;
+}
+
+.alarm-header{
+border-bottom: 1px solid #ddd;
+font-size: 85%;
+padding-left:5px;
+padding-top:5px;
+height:27px;
+font-weight: bold;
+}
+.alarm-label-header{
+color: #535454;
+}
+
+.alarm-remove{
+float:right;
+margin-right: 6px;
+color: #535454;
+}
+
+.alarm-thumnail{
+width:36px;
+height:38px;
+}
+.alarm-photo{
+display:inline;
+float:left;
+margin-left:8px;
+margin-top:4px;
+}
+.alarm-name{
+width:240px;
+height:17px;
+float:left;
+margin-top:5px;
+margin-left: 10px;
+font-size: 95%;
+white-space: nowrap;
+overflow:hidden; 
+text-overflow:ellipsis;
+}
+.alarm-label-Name{
+float:left;
+text-align: center;
+}
+.alarm-date{
+float:right;
+margin-top:5px;
+margin-right:8px;
+color : #90a1b1;
+height:20px;
+font-size: 86%;
+}
+.alarm-content{
+width:250px;
+height:17px;
+float:left;
+margin-left: 10px;
+margin-bottom: 5px;
+font-size: 90%;
+color : #90a1b1;
+white-space: nowrap;
+overflow:hidden; 
+text-overflow:ellipsis;
+}
+.alarm-body{
+height:50px;
+border-bottom:1px solid #ddd;
+}
+
+
+
+.alarm-body:hover{
+background-color: #F3F2FA;
+cursor: pointer;
+}
+
+.alarm-label-Name:hover{
+cursor: pointer;
+}
+
+  body::-webkit-scrollbar {
+        width: 12px;
+    }
+ 
+    
+    /* Let's get this party started */
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+/*        -webkit-border-radius: 10px;
+        border-radius: 10px;*/
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+/*        -webkit-border-radius: 10px;
+        border-radius: 10px;*/
+        background:#ddd; 
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    }
+    ::-webkit-scrollbar-thumb:window-inactive {
+        background: #ddd; 
+    }
+
+.alarm-leader-color{
+	color: orange;
+}
+
+.alarm-accept{
+	float:right;
+	margin-right: -38px;
+	color: #90a1b1;
+}
+
+
+
+
+/*
+* 개발자 장윤용 끝 
+*/
+

@@ -1,0 +1,116 @@
+
+#photo {
+	width: 120px ;
+	height: 120px;
+}
+
+.fileUpload {
+	position: relative;
+	overflow: hidden;
+	margin: 10px;
+}
+.fileUpload input.upload {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+.text {
+	width: 300px;
+}
+
+/* .new{
+	color: #0982D9;
+} */
+
+#leader{
+	background-image: url('../img/top/leadericon.png');
+	background-repeat: no-repeat;
+	padding-top: 6px;
+	padding-left: 27px;
+	color: #0982D9;
+}
+
+#follower{
+	background-image: url('../img/top/follower_icon.png');
+	background-repeat: no-repeat;
+	padding-top: 6px;
+	padding-left: 27px;
+	
+}
+
+.groupLabel{
+	width: 130px;
+}
+
+/* .date{
+	width:200px;
+	
+}
+
+.manager{
+	width: 100px;
+  margin-right:10px;
+}
+
+.accept{
+	color: #0982D9;
+	width: 100px;
+	margin-left:10px;
+	
+}
+
+.notAccept{
+	color: #90a1b1;
+  width: 100px;
+  margin-right:10px;
+ 
+} */
+
+.invisible_btn{
+	display: "none";
+}
+
+#message-body{
+	height: 680px;
+}
+
+#message-menue{
+	width:170px;
+	float:left;
+	margin-left: -65px;
+}
+
+#invitation-menue{
+	width:100px;
+	float:left;
+	margin-left: 7px;
+}
+
+#message-content{
+	width:620px;
+	float:right;
+}
+
+.message-menues{
+	padding:7px 0px;
+}
+
+.message-submenues:hover{
+	background-color: #BBD6FC;
+	cursor: pointer;
+}
+
+.menue-list:hover{
+	cursor: pointer;
+}
+
+#message-content{
+	height:702px;
+}

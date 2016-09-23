@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<?xml version="1.0" encoding="utf-8"?>
+<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../js/content/gh3.js"></script>
+<script type="text/javascript" src="../js/content/underScore.js"></script>
+<script type="text/javascript" src="../js/content/github.js"></script>
+<script type="text/javascript" src="../js/content/base64.js"></script>
+<script type="text/javascript" src="../js/content/maskedinput.js"></script>
+<script type="text/javascript" src="../js/login.js"></script>
+
+
+<link rel="stylesheet" href="../css/bootstrap/bootstrap-theme.css">
+<link rel="stylesheet" href="../css/bootstrap/bootstrap-theme.css.map">
+<link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
+<link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="../css/bootstrap/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../css/login.css">
+<meta charset="UTF-8">
+<title>Welcome to Bit_Place</title>
+<style type="text/css">
+#register_form_booth{
+	display : none;
+}
+</style>
+
+
+
+</head>
+
+
+
+<body>
+	<div id="login_black">
+		<div id="login_box">
+		<div id="logged_members_box_Wrapper">
+		<div id="IconOfBit_Place"></div>
+		</div>
+		<form role="form" action="../groups/logged.bit" method="POST" id="frm" enctype="multipart/form-data">
+		<div id="login_body"></div>
+		</form>
+		<div id="login_btnGroup">
+		<button type="button" class="btn btn-primary" id="registerBtn">Register</button>
+		<button type="button" class="btn btn-info" id="pwdFindBtn">ID / PWD</button>
+		<span id="loginBtn_wrapper">
+		<input type="button" class="btn btn-success" value="Login" id="loginBtn">
+		</span>
+		<span id="submit_Register">
+		<input type="button" class="btn btn-success" value="submit" id="submit" disabled>
+		</span>
+		<span id="goBack_wrapper">
+		<input type="button" class="btn btn-warning" value="goBack" id="goBack">
+		</span>
+		</div>
+		</div>
+		</div>
+		
+		<div id="logins_form_booth">
+		<table id="login_typebox">
+				<tr>
+				<td><img src="../img/login/bit_login.png">
+				<span class="checkforIdValidation"></span>
+				</td>
+				</tr>
+				<tr>
+				<td>
+				<input type="text" class="form-control" id="idinput" name="memNo" placeholder="Enter email">
+				</td>
+				</tr>
+				<tr>
+				<td>
+				<input type="password" class="form-control" id="pwdinput" name="pwd" placeholder="Password">
+				</td>
+				</tr>
+		</table>	
+		</div>
+		
+		<div id="register_form_booth">
+		<table id="login_typebox">
+				<tr>
+				<td><img src="../img/login/registerlogo.png">
+				<span class="checkforIdValidation"></span>
+				</td>
+				</tr>
+				<tr>
+				<td>
+				<div class="input-group">
+				<div class="input-group-addon">@</div>
+				<input type="email" class="form-control" id="emailCheck" name="email" placeholder="Enter email">
+				</div>
+				</td>
+				</tr>
+				<tr>
+				<td>
+				<span></span>
+				<div class="row">
+				<div class="col-xs-7">
+				<input type="text" class="form-control" id="email_validation"  placeholder="Validation Code" disabled>
+				</div>
+				<button type="button" class="btn btn-warning" id="validation_to_email" disabled>Validation Code</button>
+				</div>
+				</td>
+				</tr>
+				<tr>
+				<td>
+				<input type="password" class="form-control" id="reg_pwd" name ="pwd" placeholder="Password" disabled>
+				</td>
+				</tr>
+				<tr>
+				<td>
+				<input type="password" class="form-control" id="reg_pwd2" placeholder="Confirm Password" disabled>
+				</td>
+				</tr>
+				<tr>
+				<td>
+				<input type="text" class="form-control" id="git_id" name="git_id" placeholder="Git_Id USERNAME ONLY EMAIL 사용금지)" disabled>
+				</td>
+				</tr>
+				<tr>
+				<td>
+				<div class="row">
+				<div class="col-xs-7">
+				<input type="password" class="form-control" id="git_pwd" name="git_pwd" placeholder="Enter Git_ID Password" disabled>
+				</div>
+				<button type="button" class="btn btn-info" id="validation_to_github" disabled>Validate Github</button>
+				</div>
+				</td>
+				</tr>		
+				<tr>
+				<td>
+				<input type="file" class="form-control" id="photo" name="photoUpfile">
+				<span id="insertPhotoFileManually">
+				<img src='../img/login/image_inputicon.jpeg' id='insertPhotoFileManuallyIcon' class="img-rounded">
+				</span>
+				<div id="usingGithubPhoto_wrapper">
+				<div id="usingGithubPhoto_name">Github에 등록된 사진을 선택합니다.</div>
+				<div id="usingGithubPhoto"></div>
+				</div>
+				</td>
+				</tr>
+				<tr>
+				<tr>	
+				<td>
+				<input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" disabled>
+				</td>
+				</tr>
+				<tr>
+				<td>
+				<input type="text" class="form-control" id="phone" name="phone" placeholder="CELL-PHONE" disabled>
+				</td>
+				</tr>
+		</table>	
+		</div>
+		
+		<div id="idspwd_booth">
+		<table id="login_typebox">
+				<tr>
+				<td><img src="../img/login/findpwdlogo.png">
+				<span class="checkforIdValidation"></span>
+				</td>
+				</tr>
+				<tr>
+				<td>
+				<input type="text" class="form-control" id="findname" placeholder="이름을 검색합니다.">
+				<span id="findname_list"></span>
+				</td>
+				</tr>
+				<tr>
+				<td>
+			          <input type="text" class="form-control" id="findemail" placeholder="이메일을 입력합니다.">	
+				</td>
+				</tr>
+				<tr>
+				<td>
+				<div id="findemail_wrapper">
+				<div class="row">
+				<div class="col-xs-8">
+				<input type="text" class="form-control" id="findphone" placeholder="CELL-PHONE">
+				</div>
+				<button type="button" class="btn btn-success" id="findBtn">임시암호발급</button>
+				</div>
+				</div>
+				</td>
+				</tr>
+		</table>	
+		</div>
+		
+		<input type="hidden" id="validationCode">
+</body>
+</html>
